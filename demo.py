@@ -152,6 +152,24 @@ for i in range(len(list1)-1,0,-1):
             list1[j+1] = temp
             
 print(list1)
+
+#Method3
+#descring order of a list :
+
+
+n = [ 7, 9, 8, 4,31, 1,3, 2, 5, 6]
+
+print(len(n))
+for i in range(len(n)):
+    for j in range(len(n)):
+        print(i,j)
+        if n[i] > n[j]:
+            temp = n[i]
+            n[i] = n[j]
+            n[j] = temp
+#        print(n)
+
+print("sorted list", n)
 """
 
 
@@ -328,4 +346,226 @@ def rev_list(list,n):
 list=[1,2,3,4,5,6,7,8,9,10,11,12]
 print(list[10:20][::-1])
 print(rev_list(list,5))
+"""
+#Dict Comprehension
+"""
+item = {n: n*2 for n in range(10)}
+print(item)
+"""
+
+
+# Function to check if x is power of 2
+"""
+def isPowerOfTwo(n):
+    if (n == 0):
+        return False
+    while (n != 1):
+        print(n)
+        if (n % 2 != 0):
+            return False
+        n=n / 2
+
+    return True
+
+
+# Driver code
+if (isPowerOfTwo(128)):
+    print('Yes')
+else:
+    print('No')
+if (isPowerOfTwo(64)):
+    print('Yes')
+else:
+    print('No')
+
+"""
+
+#Fibonacci code
+#0 1 1 2 3 5
+"""
+get_max = int(input("enter the num"))
+start = 0
+next = 1
+while(start <= get_max):
+    print(start)
+    temp = start
+    start = start + next
+    next = temp
+"""
+#List reverse
+"""
+#Method 1
+lis =[1, 2, 3, 4, 5, 6, 7, 8,9]
+for i in range(0, len(lis) // 2):
+    lis[i], lis[len(lis) -1 -i] = lis[len(lis) -1 -i], lis[i]
+    print( lis[i], lis[len(lis) -1 -i])
+print(lis)
+
+#Method2
+lis = [4,7,8,9]
+lis.reverse()
+print(lis)
+
+#Method3
+print(lis[::-1])
+
+#Method4
+lis =[1, 2, 3, 4, 5, 6, 7, 8,9]
+lis1 = []
+print(len(lis))
+for i in range(len(lis)-1,-1,-1):
+    lis1.append(lis[i])
+
+print("lis1 is ",lis1)
+"""
+
+#print max and min of a numbers thrugh classes:
+"""
+def minmax(test, *args):
+    res = args[0]
+    for arg in args[1:]:
+        print(arg)
+        if test(arg, res):
+            print(res,arg)
+            res = arg
+    return res
+
+def lessthan(x, y): return x < y
+def grtrthan(x, y): return x > y
+
+print (minmax(grtrthan,4, 2, 5, 6, 3))
+"""
+
+#binary to decimal:
+#Method1
+"""
+num = int(input("enter the num"))
+
+dec = 0
+p = 0
+i = 1
+
+while (num > 0):
+    p = num % 10
+    r = p * i
+    dec = dec + r
+    i = (i * 2)
+    num = num // 10
+
+print(dec)
+"""
+#Method2
+#Needs to implement by me
+
+#Inceremnet the ip address:
+"""
+def incr_ip(ip,no_of_incr):
+    print(ip)
+    ip_list=ip.split(".")
+    a=int(ip_list[0])
+    b=int(ip_list[1])
+    c=int(ip_list[2])
+    d=int(ip_list[3])
+    for i in range(0,no_of_incr):
+        d+=1
+        if d>255:
+            d=0
+            c+=1
+        if c>255:
+            c=0
+            b+=1
+        if b>255:
+            b=0
+            a+=1
+        if a>255:
+            a-=1
+            print("cannpot inceremnt the ip")
+        print(a,".",b,".",c,".",d)
+
+print(incr_ip("256.255.255.255",10))
+"""
+
+#decimacl to binary
+"""
+numb=10
+binary=''
+while (numb):
+    print(numb,binary)
+    if (numb % 2 == 0):
+        binary+='0'
+    else:
+        binary+='1'
+    numb=numb // 2
+
+
+binary = ''.join(reversed(binary))
+print(binary)
+"""
+
+
+#check for a prime num in the range:
+"""
+for x in range(3,50):
+
+    for y in range(2,x):
+        if x % y ==0:
+            break
+    else:
+        print(x)
+
+
+a=[x for x in range(3,50) if all(x%y !=0 for y in range (2,x))]
+print(a)
+
+"""
+
+#Count the number of characters
+"""
+c=dict()
+str = "ergeg"
+for i in str:
+    if i in c.keys():
+        c[i]=c[i] + 1
+    else:
+        c[i]=1
+
+print(c)
+"""
+#Enumerete
+"""
+color = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+print(list(enumerate(color)))
+color = [x for (i,x) in enumerate(color) if i not in (0,4,5)]
+print(color)
+"""
+
+#To get n lines from a file:
+###Method1
+"""
+with open("D:\HCL WORKING\sowndharya\PYTHON\python progs\python programes2 _file_op.txt") as myfile:
+    head = [next(myfile) for x in range(3)]
+print (head)
+
+###Method2
+def file_read_from_head(fname, nlines):
+    from itertools import islice
+    with open(fname) as f:
+        for line in islice(f, nlines):
+            print(line)
+
+
+file_read_from_head('D:\HCL WORKING\sowndharya\PYTHON\python progs\python programes2 _file_op.txt', 3)
+
+###Method3
+#easy method:
+
+file2=open("D:\HCL WORKING\sowndharya\PYTHON\python progs\python programes2 _file_op.txt",'r')
+line=file2.readline()
+n= 4
+while(n>0):
+    print("line is ",line)
+    line=file2.readline()
+    n = n - 1
+file2.close()
+
 """
